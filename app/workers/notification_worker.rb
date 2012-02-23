@@ -1,5 +1,10 @@
 class NotificationWorker
+  extend Resque::Plugins::Retry
+
   @queue = :notifications
+
+  @retry_limit = 0
+  @retry_exceptions = []
 
   # Takes a PfeedItem and stringified PfeedItem.attemp_delivery method params
   def self.perform(pfeed_item_id, ar_obj_klass_name, ar_obj_id, method_name_arr)

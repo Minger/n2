@@ -1,5 +1,9 @@
 class TweetStreamsWorker
+  extend Resque::Plugins::Retry
+
   @queue = :tweet_streams
+
+  @retry_limit = 5
 
   def self.perform(tweet_stream_id = nil)
     tweet_streams = []

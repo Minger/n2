@@ -1,7 +1,13 @@
 require 'aws/s3'
 
 class SitemapWorker
+  extend Resque::Plugins::Retry
+
   @queue = :sitemaps
+
+  @retry_limit = 0
+  @retry_exceptions = []
+
 
   def self.perform()
     SitemapGenerator::Sitemap.verbose = false

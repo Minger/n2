@@ -1,5 +1,10 @@
 class ScoreWorker
+  extend Resque::Plugins::Retry
+
   @queue = :scores
+
+  @retry_limit = 0
+  @retry_exceptions = []
 
   # Takes a Scorable Type, Scorable ID, and the User ID responsible
   def self.perform(scorable_type, scorable_id, user_id)

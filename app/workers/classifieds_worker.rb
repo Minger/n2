@@ -1,5 +1,11 @@
 class ClassifiedsWorker
+  extend Resque::Plugins::Retry
+
   @queue = :classifieds
+
+  @retry_exceptions = []
+  @retry_limit = 0
+
 
   # needs to run nightly
   def self.perform()

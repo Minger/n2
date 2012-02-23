@@ -1,5 +1,10 @@
 class RemindersWorker
+  extend Resque::Plugins::Retry
+
   @queue = :reminders
+
+  @retry_limit = 0
+  @retry_exceptions = []
 
   # needs to run nightly
   def self.perform()

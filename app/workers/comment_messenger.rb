@@ -1,5 +1,10 @@
 class CommentMessenger
+  extend Resque::Plugins::Retry
+
   @queue = :comment_messenger
+
+  @retry_exceptions = []
+  @retry_limit = 0
 
   def self.perform(comment_id, item_url, app_caption, image_url)
     # TEMPORARILY DISABLE

@@ -1,5 +1,10 @@
 class VoteMessenger
+  extend Resque::Plugins::Retry
+
   @queue = :vote_messenger
+  
+  @retry_limit = 0
+  @retry_exceptions = []
 
   def self.perform(vote_id, item_url, app_caption, image_url)
     # TEMPORARILY DISABLE

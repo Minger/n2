@@ -1,5 +1,10 @@
 class FeedsWorker
+  extend Resque::Plugins::Retry
+
   @queue = :feeds
+
+  @retry_limit = 0
+  @retry_exceptions = []
 
   def self.perform(feed_id = nil)
     if feed_id

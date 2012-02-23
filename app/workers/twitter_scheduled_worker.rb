@@ -1,5 +1,10 @@
 class TwitterScheduledWorker
+  extend Resque::Plugins::Retry
+
   @queue = :twitter_scheduled
+
+  @retry_limit = 5
+
 
   def self.perform
     begin
