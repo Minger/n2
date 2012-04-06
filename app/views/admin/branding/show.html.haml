@@ -1,0 +1,20 @@
+%h1 Site Branding
+
+= form_tag '', :multipart => true do
+
+  %p
+  = file_field_tag :logo
+  - if Branding.logo
+    = image_tag logo_branding_url
+  - else
+    No logo uploaded yet.
+
+  %p
+    = file_field_tag :favicon
+    - if Branding.favicon
+      = image_tag favicon_branding_url
+    - else
+      No favicon uploaded yet.
+
+
+  = submit_tag "Update Site Branding"
