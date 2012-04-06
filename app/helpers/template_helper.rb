@@ -91,7 +91,7 @@ module TemplateHelper
       content << content_tag(:div, :class => "feature-caption") do
         nested_content = content_tag(options[:title_tag], link_to(item.item_title, item.item_link))
         if options[:description]
-          nested_content << content_tag(:p, item.item_description)
+          nested_content << content_tag(:p, item.item_description[0,100])
         end
         nested_content
       end
@@ -159,7 +159,7 @@ module TemplateHelper
 
     content_tag(:li, :class => options[:class]) do
       content = content_tag(options[:title_tag], link_to(item.item_title, item.item_link))
-      content << content_tag(:p, item.item_description) if options[:item_description]
+      content << content_tag(:p, item.item_description[0,100]) if options[:item_description]
       content << content_tag(:h6, posted_by_with_date_and_topic(item)) unless options[:profile_disabled]
       content
     end
@@ -197,7 +197,7 @@ module TemplateHelper
         item_image_content << content_tag(:div, :class => 'content') do
           description = (options[:raw] || item.is_a?(Article)) ? raw(item.item_description) : item.item_description # yuck...
           content = content_tag(options[:title_tag], link_to(item.item_title, item.item_link))
-          content << content_tag(:p, description)
+          content << content_tag(:p, description[0,100])
           content << item_meta_profile(item)
         end
       end
