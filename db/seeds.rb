@@ -501,12 +501,6 @@ view_object_templates =
      :max_items => nil
    },
    {
-     :name        => "v2_single_col_list",
-     :pretty_name => "Version 2 Single Column List",
-     :template    => "shared/templates/single_col_list",
-     :min_items => 1
-   },
-   {
      :name        => "v2_single_col_list_with_profile",
      :pretty_name => "Version 2 Single Column List With Profile",
      :template    => "shared/templates/single_col_list_with_profile",
@@ -520,55 +514,15 @@ view_object_templates =
      :max_items => nil
    },
    {
-     :name        => "v2_triple_col_large_2",
-     :pretty_name => "Version 2 Triple Column Large Feature With 2 Sub Items",
-     :template    => "shared/templates/triple_col_large_2",
-     :min_items => 3,
-     :max_items => 3
-   },
-   {
-     :name        => "v2_double_col_feature",
-     :pretty_name => "Version 2 Double Column Feature",
-     :template    => "shared/templates/double_col_feature",
-     :min_items => 1,
-     :max_items => 1
-   },
-   {
      :name        => "v2_single_col_user_list",
      :pretty_name => "Version 2 Single Column User List",
      :template    => "shared/templates/single_col_user_list",
      :min_items => 1
    },
    {
-     :name        => "v2_single_col_small_list",
-     :pretty_name => "Version 2 Single Column Small List",
-     :template    => "shared/templates/single_col_small_list",
-     :min_items => 1
-   },
-   {
      :name        => "v2_single_col_gallery_strip",
      :pretty_name => "Version 2 Single Column Gallery Strip",
      :template    => "shared/templates/single_col_gallery_strip",
-     :min_items => 1
-   },
-   {
-     :name        => "v2_single_col_item",
-     :pretty_name => "Version 2 Single Column Item",
-     :template    => "shared/templates/single_col_item",
-     :min_items => 1,
-     :max_items => 1
-   },
-   {
-     :name        => "v2_double_col_item",
-     :pretty_name => "Version 2 Double Column Item",
-     :template    => "shared/templates/double_col_item",
-     :min_items => 1,
-     :max_items => 1
-   },
-   {
-     :name        => "v2_double_col_item_list",
-     :pretty_name => "Version 2 Double Column Item List",
-     :template    => "shared/templates/double_col_item_list",
      :min_items => 1
    },
    {
@@ -581,19 +535,6 @@ view_object_templates =
      :name        => "v2_double_col_gallery_strip",
      :pretty_name => "Version 2 Double Column Gallery Strip",
      :template    => "shared/templates/double_col_gallery_strip",
-     :min_items => 1
-   },
-   {
-     :name        => "v2_double_col_triple_item",
-     :pretty_name => "Version 2 Double Column Triple Item",
-     :template    => "shared/templates/double_col_triple_item",
-     :min_items => 3,
-     :max_items => 3
-   },
-   {
-     :name        => "v2_double_col_feature_triple_item",
-     :pretty_name => "Version 2 Double Column Feature With Triple Item",
-     :template    => "shared/templates/double_col_feature_triple_item",
      :min_items => 1
    },
    {
