@@ -1,5 +1,7 @@
 class ViewObject < ActiveRecord::Base
 
+  acts_as_moderatable
+
   belongs_to :view_object_template
   belongs_to :parent, :class_name => "ViewObject", :foreign_key => :parent_id
   has_one :setting, :class_name => "Metadata", :as => :metadatable

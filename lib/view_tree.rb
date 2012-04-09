@@ -73,11 +73,11 @@ class ViewTree
   end
 
   def render
-    if @cache and out = Newscloud::Redcloud.redis.get(@cache_key_name) and out.present?
+    if @cache and out = Newscloud::Redcloud.redis.get(@cache_key_name) and out.present? and !out.is_blocked?
       return out
     else
       load_view_object
-      return '' unless @view_object
+      return '' unless @view_object and !@view_object.is_blocked?
       uncache_it
     end
 

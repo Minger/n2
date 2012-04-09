@@ -1,4 +1,7 @@
 class Metadata::CustomWidget < Metadata
+
+  acts_as_moderatable
+
   metadata_keys :title, :custom_data, :content_type
 
   scope :key_sub_type_name, lambda { |*args| { :conditions => ["key_sub_type = ? AND key_name = ?", args.first, args.second] } }
