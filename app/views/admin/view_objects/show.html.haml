@@ -9,7 +9,7 @@
     %p== Locale Title Text: #{t(@view_object_setting.locale_title.try(:to_sym)) || @view_object_setting.locale_title}
     - if @view_object_setting.locale_subtitle.present?
       %p== Locale Subtitle Text: #{t(@view_object_setting.locale_subtitle.to_sym) || @view_object_setting.locale_subtitle}
-    - unless @view_object_setting.is_curated
+    - unless @view_object_setting.is_curated or @view_object_setting.kommands.empty?
       %p== Model Resource: #{@view_object_setting.klass_name.tableize.titleize}
       - kommand = @view_object_setting.kommands.first
       %p== Model Method: #{kommand[:method_name].titleize}
@@ -32,6 +32,8 @@
         = link_to "Edit", edit_curated_admin_view_object_path(@view_object)
       - else
         = link_to "Edit", edit_admin_view_object_path(@view_object)
+      |
+      = link_to(@view_object.blocked? ? 'UnBlock' : 'Block', admin_block_path(@view_object.class.name.foreign_key.to_sym => @view_object))
       |
       = link_to "Clone", clone_admin_view_object_path(@view_object)
 -#
