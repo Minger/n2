@@ -79,17 +79,21 @@
         %li.input.string
           = label_tag 'view_object[key_name]', 'Widget Name*', :class => "label"
           = text_field_tag 'view_object[key_name]', @view_object.name
+          %p.inline-hints A friendly name to reference this widget when arranging the layout in the Administration console
         %li.input.string
-          = label_tag 'view_object_setting[locale_title]', 'Locale Title*', :class => "label"
+          = label_tag 'view_object_setting[locale_title]', 'Title*', :class => "label"
           = text_field_tag 'view_object_setting[locale_title]', @view_object_setting.locale_title
+          %p.inline-hints The title that appears above the widget on the home page - not used by all widgets.
         %li.input.string
-          = label_tag 'view_object_setting[locale_subtitle]', 'Locale Subtitle*', :class => "label"
+          = label_tag 'view_object_setting[locale_subtitle]', 'Subtitle*', :class => "label"
           = text_field_tag 'view_object_setting[locale_subtitle]', @view_object_setting.locale_subtitle
+          %p.inline-hints A subtitle that appears with the widget title - not used by all widgets.
         %div.template-selection
           %div.template-select-column
             %li.input.string
               = label_tag 'view_object[view_object_template_id]', 'Template*', :class => "label"
               = select_tag 'view_object[view_object_template_id]', options_for_select(select_view_object_template_options, @view_object.view_object_template_id)
+              %p.inline-hints
           %div.template-preview-column
             %h5 Template Preview
             - ViewObjectTemplate.all.each do |t|
@@ -100,12 +104,14 @@
         %li.input.string
           = label_tag 'view_object_setting[klass_name]', 'Model Resource*', :class => "label"
           = select_tag 'view_object_setting[klass_name]', options_for_select(select_view_object_class_options, @view_object_setting.klass_name)
+          %p.inline-hints Choose which feature this widget draws content from. For popular items across all features, choose item score. For new items, across all features, choose item action. 
         - kommand = @view_object_setting.kommands.first
         - klass = @view_object_setting.get_klass
         %li.input.string
-          = label_tag 'view_object_setting[kommand_name]', 'Method', :class => "label"
+          = label_tag 'view_object_setting[kommand_name]', 'Content', :class => "label"
           -#= select_tag 'view_object_setting[kommand_name]', options_for_select(klass.view_object_scope_methods, kommand[:method_name])
           = select_tag 'view_object_setting[kommand_name]'
+          %p.inline-hints You can sort items by newest or most popular. Other features have some additional options.
         %li.input.string
           = label_tag 'view_object_setting[kommand_limit]', 'Number of Items', :class => "label"
           -#= select_tag 'view_object_setting[kommand_limit]', options_for_select(limit_options, kommand[:args].try(:first))
@@ -113,11 +119,13 @@
         %li.input.boolean
           = label_tag 'view_object_setting[use_post_button]', nil, :class => "label" do
             = check_box_tag 'view_object_setting[use_post_button]', 1, @view_object_setting.use_post_button
-            Use Post Button
+            Include Post Button
+          %p.inline-hints Some widgets are designed to include a post an item button inside the widget.
         %li.input.boolean
           = label_tag 'view_object_setting[cache_disabled]', 'Disable Caching', :class => "label" do
             = check_box_tag 'view_object_setting[cache_disabled]', 1, @view_object_setting.cache_disabled
             Disable Caching
+          %p.inline-hints Advanced users only - disables caching on specific widgets
     = field_set_tag nil, :class => 'buttons' do
       %ol
         %li
