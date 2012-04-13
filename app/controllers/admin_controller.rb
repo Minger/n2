@@ -160,7 +160,11 @@ class AdminController < ApplicationController
       if name =~ /(.+)_id$/
         # switch story requests to use the content model
         klass = $1 == 'story' ? 'content' : $1
-        return klass.classify.constantize.find(value)
+        if klass.classify == "CustomWidget"
+          return Metadata::CustomWidget.find(value)
+        else
+          return klass.classify.constantize.find(value)
+        end
       end
     end
     nil

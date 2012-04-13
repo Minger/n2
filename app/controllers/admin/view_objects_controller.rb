@@ -3,7 +3,6 @@ class Admin::ViewObjectsController < AdminController
 
   admin_scaffold :view_object do |config|
     config.index_fields = [:name, :view_object_template_id]
-    #config.show_fields = [:name, :view_object_template_id]
     config.actions = [:index]
     config.associations = { :belongs_to => { :view_object_template => :view_object_template_id } }
     config.order_by = "name asc" 

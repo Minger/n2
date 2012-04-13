@@ -7,6 +7,8 @@ N2::Application.routes.draw do
     match '/translations.:format' => 'translations#translations', :as => :translations
     match '/asset_translations.:format' => 'translations#asset_translations', :as => :asset_translations
 
+    resource :branding, :controller => 'branding'
+
     resources :activity_scores
     resources :ad_layouts
     resources :ads
@@ -94,7 +96,7 @@ N2::Application.routes.draw do
         post :save
       end
     end
-    
+
     resources :newswires
     resources :prediction_groups do
       member do

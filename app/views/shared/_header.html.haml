@@ -4,6 +4,13 @@
   %h1#site-name-wrap
     %a#site-name{:title => "Front Page - #{get_setting('site_title').try(:value)}", :href => "#{root_url}"}= get_setting('site_title').try(:value)
 
+    - # Override css with custom logo if provided
+    - if Branding.logo
+      %style{:type => 'text/css'}
+        :sass
+          #site-name
+            background-image: url(#{logo_branding_url}) !important
+
   #header-actions
     - cache :google_search_header_html, :expires_in => 180.minute do
       - if Metadata::Setting.find_setting('google_search_engine_id').present?

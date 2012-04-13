@@ -41,6 +41,9 @@
     var templateID = $(this).val();
     var rangeOptions = optionsFromRange(rangeForTemplate(templateID));
     $('#view_object_setting_kommand_limit').html(rangeOptions.join(''));
+    $('.preview').fadeOut();
+    var template_id = $('option:selected', this).val();
+    $('#preview-' + template_id).fadeIn();
     });
 
     $('#view_object_setting_klass_name').change(function(event) {
@@ -82,9 +85,18 @@
         %li.input.string
           = label_tag 'view_object_setting[locale_subtitle]', 'Locale Subtitle*', :class => "label"
           = text_field_tag 'view_object_setting[locale_subtitle]', @view_object_setting.locale_subtitle
-        %li.input.string
-          = label_tag 'view_object[view_object_template_id]', 'Template*', :class => "label"
-          = select_tag 'view_object[view_object_template_id]', options_for_select(select_view_object_template_options, @view_object.view_object_template_id)
+        %div.template-selection
+          %div.template-select-column
+            %li.input.string
+              = label_tag 'view_object[view_object_template_id]', 'Template*', :class => "label"
+              = select_tag 'view_object[view_object_template_id]', options_for_select(select_view_object_template_options, @view_object.view_object_template_id)
+          %div.template-preview-column
+            %h5 Template Preview
+            - ViewObjectTemplate.all.each do |t|
+              - if t.id == @view_object.view_object_template_id
+                .preview{:id => "preview-#{t.id}", :style => "display:block;"}= image_tag t.preview unless t.preview.nil?  
+              - else
+                .preview{:id => "preview-#{t.id}", :style => "display:nil;"}= image_tag t.preview unless t.preview.nil?  
         %li.input.string
           = label_tag 'view_object_setting[klass_name]', 'Model Resource*', :class => "label"
           = select_tag 'view_object_setting[klass_name]', options_for_select(select_view_object_class_options, @view_object_setting.klass_name)
@@ -106,7 +118,6 @@
           = label_tag 'view_object_setting[cache_disabled]', 'Disable Caching', :class => "label" do
             = check_box_tag 'view_object_setting[cache_disabled]', 1, @view_object_setting.cache_disabled
             Disable Caching
-
     = field_set_tag nil, :class => 'buttons' do
       %ol
         %li

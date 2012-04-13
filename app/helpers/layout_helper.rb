@@ -40,7 +40,11 @@ module LayoutHelper
   end
 
   def icon_fan_app_url
-    base_url(path_to_image(icon_fan_app_location))
+    if Branding.favicon
+      favicon_branding_url
+    else
+      base_url(path_to_image(icon_fan_app_location))
+    end
   end
 
   def item_page_title item
