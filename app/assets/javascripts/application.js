@@ -820,7 +820,7 @@ addthis.addEventListener('addthis.menu.share',shareEventHandler);
 				return false;
 			},
 			serviceUrl:'/tags/suggest',
-			deferRequestBy: 100, //miliseconds
+			deferRequestBy: 10, //miliseconds
 			//lookup: ['January', 'February', 'March', 'April', 'May'] //local lookup values
 		});
 
