@@ -538,6 +538,13 @@ view_object_templates =
      :min_items => 1
    },
    {
+     :name        => "v2_double_col_triple_item",
+     :pretty_name => "Version 2 Double Column Triple Item",
+     :template    => "shared/templates/double_col_triple_item",
+     :min_items => 3,
+     :max_items => 3
+   },
+   {
      :name        => "twitter_standard_list",
      :pretty_name => "Twitter Standard List",
      :template    => "shared/sidebar/twitter_standard_list",
@@ -947,23 +954,6 @@ view_objects = [
   		]
   	}
   },
-                {
-                  # TODO: delete this view object?
-  	:name          => "Newest Story Double Column Item",
-  	:template_name => "v2_double_col_item",
-  	:settings      => {
-  		:klass_name      => "Content",
-  		:locale_title    => "shared.sidebar.newest_stories.newest_stories_title",
-  		:locale_subtitle => nil,
-  		:use_post_button => true,
-  		:kommands        => [
-  		  {
-          :method_name => "newest",
-          :args        => [1]
-        }
-  		]
-  	}
-  },
   {
   	:name          => "Top Classifieds",
   	:template_name => "v3_single_col_item_list",
@@ -1168,25 +1158,6 @@ view_objects = [
   		:kommands        => [
   		  {
           :method_name => "newest"
-        }
-  		]
-  	}
-  },
-  {
-  	:name          => "Newest Articles Feature",
-  	:template_name => "v2_double_col_feature",
-  	:settings      => {
-  		:klass_name      => "Article",
-  		:locale_title    => "articles.newest_title",
-  		:locale_subtitle => nil,
-  		:use_post_button => false,
-  		:kommands        => [
-  		  {
-          :method_name => "published"
-        },
-  		  {
-          :method_name => "newest",
-          :args        => [1]
         }
   		]
   	}
@@ -1401,18 +1372,6 @@ view_objects = [
   	}
   },
   {
-  	:name          => "Double Column Featured With Triple Items",
-  	:template_name => "v2_double_col_feature_triple_item",
-  	:settings      => {
-  		:klass_name      => "ViewObject",
-  		:locale_title    => nil,
-  		:locale_subtitle => nil,
-  		:use_post_button => false,
-  		:kommands        => [
-  		]
-  	}
-  },
-  {
   	:name          => "Facebook Recommendations Plugin",
   	:template_name => "v2_single_facebook_widget",
   	:settings      => {
@@ -1539,7 +1498,7 @@ end
 
 home_view_object = ViewObject.find_or_create_by_name("home--index")
 unless home_view_object.edge_children.any?
-  ["Double Column Triple Trending Stories", "Newest Univeral Items", "Top Universal Items", "Newest Questions", "Newest Classifieds", "Default Ad Square", "Newest Gallery Double Column Small Strip", "Recent Users", "Welcome Panel"].each do |name|
+  ["Double Column Triple Popular Items", "Newest Univeral Items", "Newswire", "Recent Users", "Welcome Panel", "Facebook Recommendations Plugin", "Twitter Standard List",  "Default Ad Square", "Newest Gallery Double Column Small Strip"].each do |name|
     puts "Adding #{name}" if debug
     home_view_object.add_child! ViewObject.find_by_name(name)
   end
