@@ -3,7 +3,7 @@ class RemoveOldVoTemplates < ActiveRecord::Migration
     template_names = ["v2_single_col_list",
     "v2_triple_col_large_2",
     "v2_double_col_feature",
-    "v2_single_col_small_list",
+#    "v2_single_col_small_list",
     "v2_single_col_item",
     "v2_double_col_item",
     "v2_double_col_item_list",

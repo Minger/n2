@@ -501,6 +501,12 @@ view_object_templates =
      :max_items => nil
    },
    {
+     :name        => "v2_single_col_small_list",
+     :pretty_name => "Single Column Small List (Version 2)",
+     :template    => "shared/templates/single_col_small_list",
+     :min_items => 1
+   },
+   {
      :name        => "v2_single_col_list_with_profile",
      :pretty_name => "Single Column List With Profile (Version 2)",
      :template    => "shared/templates/single_col_list_with_profile",
