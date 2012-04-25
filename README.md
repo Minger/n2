@@ -41,12 +41,12 @@ This guide will bootstrap a production newscloud install on Ubuntu 10.04. We hav
 Getting Started
 ===============
 
-Clone this application to your machine and checkout  stable release 3.6
+Clone this application to your machine and checkout  stable release 3.8
 
         git clone git://github.com/newscloud/n2.git
         git checkout --track -b stable_release origin/stable_release
 
-Alternatively, download release 3.6 directly [http://github.com/newscloud/n2/archives/v3.6_stable](http://github.com/newscloud/n2/archives/v3.6_stable)
+Alternatively, download release 3.8 directly [http://github.com/newscloud/n2/archives/v3.8_stable](http://github.com/newscloud/n2/archives/v3.8_stable)
 
 Register a facebook application
 -------------------------------
